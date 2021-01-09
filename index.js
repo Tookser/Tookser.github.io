@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 let step = 1;
 const maxStep = 5;
@@ -8,17 +8,24 @@ function next() {
   /*открывает следующий шаг
   если шаг последний, выводит отчёт*/
   if (step < maxStep) {
-    document.getElementById('step-'+ step.toString()).className = 'step-hidden';
-    step++;
-    document.getElementById('step-'+ step.toString()).className = 'step';
-    // alert(step);
-  } else {
-    // скрывает шаг и кнопки
-    document.getElementById('step-' + step.toString()).className = 'step-hidden';
-    document.getElementsByClassName('navigation-buttons-block')[0].className = 'hidden';
+    document.getElementById('step-'+ String(step)).className = 'step-hidden';
     step++;
 
-    // let situationText = document.getElementById('situation').value;
+    let form = document.getElementById('step-'+ String(step));
+    form.className = 'step';
+
+    let textarea = form.querySelectorAll('textarea')[0];
+    textarea.focus();
+  } else {
+
+    // скрывает шаг
+    document.getElementById('step-' + String(step)).className = 'step-hidden';
+    step++;
+
+    // скрывает кнопки
+    document.getElementsByClassName('navigation-buttons-block')[0].className = 'hidden';
+
+
 
     let resultTextarea = document.getElementById('result');
     resultTextarea.value = createResult();
@@ -34,9 +41,13 @@ function pred() {
   /*открывает предыдущий шаг
   если шаг первый, ничего не делает*/
   if (step > 1 && step <= maxStep) {
-    document.getElementById('step-'+ step.toString()).className = 'step-hidden';
+    document.getElementById('step-'+ String(step)).className = 'step-hidden';
     step--;
-    document.getElementById('step-'+ step.toString()).className = 'step';
+    let form = document.getElementById('step-'+ String(step));
+    form.className = 'step';
+
+    let textarea = form.querySelectorAll('textarea')[0];
+    textarea.focus();
   }
 }
 

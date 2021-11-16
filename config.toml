@@ -14,7 +14,7 @@ defaultContentLanguage = "ru"
   themeColor = "green"
 
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 2 # что это
+  showMenuItems = 3 # что это
 
   # show selector to switch language
   showLanguageSelector = false
@@ -73,6 +73,10 @@ defaultContentLanguage = "ru"
       logoHomeLink = "/"
 
     [languages.ru.menu]
+      [[languages.ru.menu.main]]
+        identifier = "glavn"
+        name = "Главная"
+        url = "/"
       [[languages.ru.menu.main]]
         identifier = "about"
         name = "Обо мне"

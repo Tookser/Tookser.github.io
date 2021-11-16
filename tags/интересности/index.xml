@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>интересности on Личный сайт Ивана Белашкина</title>
+    <link>http://tookser.github.io/tags/%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8/</link>
+    <description>Recent content in интересности on Личный сайт Ивана Белашкина</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Tue, 16 Nov 2021 05:38:12 +0300</lastBuildDate><atom:link href="http://tookser.github.io/tags/%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Интересные вещи и где они обитают</title>
+      <link>http://tookser.github.io/posts/interesting_things/</link>
+      <pubDate>Tue, 16 Nov 2021 05:38:12 +0300</pubDate>
+      
+      <guid>http://tookser.github.io/posts/interesting_things/</guid>
+      <description>Немного интересного. Во-первых, конечно, язык Python. Мы любим его не за скорость (хотя при некоторых условиях он и по этому параметру хорош). Как минимум - это хороший язык для начинающих, кроме того, на нём приятно писать небольшие проекты для себя, синтаксис всё же очень важная вещь. Его можно ускорять разными способами.
+Алгоритм большинства голосов Бойера-Мура позволяет быстро (за один проход по массиву), без траты памяти найти, какой элемент в массиве встречается чаще всего.</description>
+      <content>&lt;p&gt;Немного интересного. Во-первых, конечно, язык &lt;a href=&#34;http://www.python.org&#34;&gt;Python&lt;/a&gt;. Мы любим его не за скорость (хотя при некоторых условиях он и по этому параметру хорош). Как минимум - это хороший язык для начинающих, кроме того, на нём приятно писать небольшие проекты для себя, синтаксис всё же очень важная вещь. Его можно &lt;a href=&#34;https://www.pypy.org/&#34;&gt;ускорять&lt;/a&gt; &lt;a href=&#34;https://cython.org/&#34;&gt;разными&lt;/a&gt; &lt;a href=&#34;https://numba.pydata.org/&#34;&gt;способами&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D0%BD%D1%81%D1%82%D0%B2%D0%B0_%D0%B3%D0%BE%D0%BB%D0%BE%D1%81%D0%BE%D0%B2_%D0%91%D0%BE%D0%B9%D0%B5%D1%80%D0%B0_%E2%80%94_%D0%9C%D1%83%D1%80%D0%B0&#34;&gt;Алгоритм большинства голосов Бойера-Мура&lt;/a&gt; позволяет быстро (за один проход по массиву), без траты памяти найти, какой элемент в массиве встречается чаще всего. Требуется, правда, чтобы он составлял простое большинство (допустим, при размере массива в 10 элементов он должен встречаться как минимум 6 раз).&lt;/p&gt;
+&lt;p&gt;Наверное, все уже знаю про &lt;a href=&#34;https://rudalle.ru/&#34;&gt;ruDALL-E&lt;/a&gt; - штуку, позволяющую генерировать по текстовому запросу изображения. Есть и менее известные штуки из области ML. Так, мне кажется достаточно хорошим направлением развития few-show recommendations services. Т.е. рекомендационные сервисы, но позволяющие почти не раскрывать о себе информации сервису, кроме &amp;ldquo;мне нравится этот фильм, и этот, и этот жанр, а этот не нравится&amp;rdquo;. Из такого был хороший movix.ai, но он ушёл в оффлайн. Нашёл нечто подобное, уже не только для фильмов - &lt;a href=&#34;https://tastedive.com/games/like/To-The-Moon&#34;&gt;tastedive&lt;/a&gt; (по ссылке - рекомендации похожего на одну из моих любимых игр, &lt;strong&gt;To The Moon&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;Ещё есть простенькая &lt;a href=&#34;https://www.music-map.com/&#34;&gt;сеть музыки&lt;/a&gt;, позволяющая побродить по близким группам. Там много всяких штук на проекте &lt;a href=&#34;https://www.gnod.com/&#34;&gt;GNOD&lt;/a&gt;, включая рекомендовалку музыки по трём любимым группам. Какой-нибудь &lt;a href=&#34;https://ru.wikipedia.org/wiki/%D0%9B%D0%B0%D0%BD%D1%8C%D0%B5,_%D0%94%D0%B6%D0%B0%D1%80%D0%BE%D0%BD&#34;&gt;Ланье&lt;/a&gt; мог бы сказать, что подобная примитивность системы наоборот действует освобождающе на человека :)&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

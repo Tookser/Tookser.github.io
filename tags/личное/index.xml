@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>личное on Личный сайт Ивана Белашкина</title>
+    <link>http://tookser.github.io/tags/%D0%BB%D0%B8%D1%87%D0%BD%D0%BE%D0%B5/</link>
+    <description>Recent content in личное on Личный сайт Ивана Белашкина</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Tue, 16 Nov 2021 05:22:47 +0300</lastBuildDate><atom:link href="http://tookser.github.io/tags/%D0%BB%D0%B8%D1%87%D0%BD%D0%BE%D0%B5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Приветствие</title>
+      <link>http://tookser.github.io/posts/my-first-post/</link>
+      <pubDate>Tue, 16 Nov 2021 05:22:47 +0300</pubDate>
+      
+      <guid>http://tookser.github.io/posts/my-first-post/</guid>
+      <description>Это мой личный сайт. Здесь написано обо мне и о тех штуках, которые кажутся мне интересными и полезными. Возможно, буду добавлять информацию, уже имею в голове пару тем, которые мне нравятся.</description>
+      <content>&lt;p&gt;Это мой личный сайт. Здесь написано обо мне и о тех штуках, которые кажутся мне интересными и полезными. Возможно, буду добавлять информацию, уже имею в голове пару тем, которые мне нравятся.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

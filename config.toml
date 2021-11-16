@@ -1,4 +1,4 @@
-baseurl = "http://tookser.github.io/"
+baseurl = "https://tookser.github.io/"
 languageCode = "ru-ru"
 theme = "terminal"
 paginate = 10

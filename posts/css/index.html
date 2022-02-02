@@ -3,7 +3,7 @@
 <title>Проблема с загрузкой css-stylesheet на хостинге github pages :: Личный сайт Ивана Белашкина</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Заметил, что на моём сайте не работают стили, хотя они есть, и показалось, что они хотят грузиться через http, хотя у меня https на сайте. Посмотрел - похоже, так и есть, и изменил в hugo схему в адресе сайта на https. Посмотрим, что получится.">
+<meta name=description content="Заметил, что на моём сайте не работают стили, хотя они есть, и показалось, что они хотят грузиться через http, хотя у меня https на сайте. Посмотрел - похоже, так и есть, и изменил в hugo схему в адресе сайта на https. Посмотрим, что получится. UPD: да, всё работает корректно. Включения по http в https-странице блокируются современными браузерами.">
 <meta name=keywords content="css,github pages,загрузка">
 <meta name=robots content="noodp">
 <link rel=canonical href=https://tookser.github.io/posts/css/>
@@ -17,7 +17,7 @@
 <meta property="og:locale" content="ru">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Проблема с загрузкой css-stylesheet на хостинге github pages">
-<meta property="og:description" content="Заметил, что на моём сайте не работают стили, хотя они есть, и показалось, что они хотят грузиться через http, хотя у меня https на сайте. Посмотрел - похоже, так и есть, и изменил в hugo схему в адресе сайта на https. Посмотрим, что получится.">
+<meta property="og:description" content="Заметил, что на моём сайте не работают стили, хотя они есть, и показалось, что они хотят грузиться через http, хотя у меня https на сайте. Посмотрел - похоже, так и есть, и изменил в hugo схему в адресе сайта на https. Посмотрим, что получится. UPD: да, всё работает корректно. Включения по http в https-странице блокируются современными браузерами.">
 <meta property="og:url" content="https://tookser.github.io/posts/css/">
 <meta property="og:site_name" content="Личный сайт Ивана Белашкина">
 <meta property="og:image" content="https://tookser.github.io/">
@@ -67,13 +67,13 @@
 2021-11-16
 </span>
 <span class=post-author>:: Иван</span>
-<span class=post-reading-time>:: 1 min read (44 words)</span>
+<span class=post-reading-time>:: 1 min read (57 words)</span>
 </div>
 <span class=post-tags>
 #<a href=https://tookser.github.io/tags/%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/>администрирование</a>&nbsp;
 </span>
 <div class=post-content><div>
-<p>Заметил, что на моём сайте не работают стили, хотя они есть, и <em>показалось</em>, что они хотят грузиться через http, хотя у меня https на сайте. Посмотрел - похоже, так и есть, и изменил в hugo схему в адресе сайта на https. Посмотрим, что получится.</p>
+<p>Заметил, что на моём сайте не работают стили, хотя они есть, и <em>показалось</em>, что они хотят грузиться через http, хотя у меня https на сайте. Посмотрел - похоже, так и есть, и изменил в hugo схему в адресе сайта на https. Посмотрим, что получится. UPD: да, всё работает корректно. Включения по http в https-странице блокируются современными браузерами.</p>
 </div></div>
 <div class=pagination>
 <div class=pagination__title>
@@ -81,6 +81,12 @@
 <hr>
 </div>
 <div class=pagination__buttons>
+<span class="button previous">
+<a href=https://tookser.github.io/posts/knowledge/>
+<span class=button__icon>←</span>
+<span class=button__text>Парадокс Гетье о знании</span>
+</a>
+</span>
 <span class="button next">
 <a href=https://tookser.github.io/posts/interesting_things/>
 <span class=button__text>Интересные вещи и где они обитают</span>
@@ -94,7 +100,7 @@
 <footer class=footer>
 <div class=footer__inner>
 <div class=copyright>
-<span>© 2021 Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>© 2022 Powered by <a href=http://gohugo.io>Hugo</a></span>
 <span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span>
 </div>
 </div>

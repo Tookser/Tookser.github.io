@@ -1,0 +1,113 @@
+<!doctype html><html lang=ru>
+<head>
+<title>Полином Жегалкина :: Личный сайт Ивана Белашкина</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Чуть-чуть о полиноме Жегалкина.">
+<meta name=keywords content="полином жегалкина,дискретная математика">
+<meta name=robots content="noodp">
+<link rel=canonical href=https://tookser.github.io/posts/jegalkin/>
+<link rel=stylesheet href=https://tookser.github.io/assets/style.css>
+<link rel=stylesheet href=https://tookser.github.io/assets/green.css>
+<link rel=apple-touch-icon href=https://tookser.github.io/img/apple-touch-icon-192x192.png>
+<link rel="shortcut icon" href=https://tookser.github.io/img/favicon/green.png>
+<meta name=twitter:card content="summary">
+<meta name=twitter:site content>
+<meta name=twitter:creator content="Иван">
+<meta property="og:locale" content="ru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Полином Жегалкина">
+<meta property="og:description" content="Чуть-чуть о полиноме Жегалкина.">
+<meta property="og:url" content="https://tookser.github.io/posts/jegalkin/">
+<meta property="og:site_name" content="Личный сайт Ивана Белашкина">
+<meta property="og:image" content="https://tookser.github.io/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2022-04-15 11:18:53 +0300 +0300">
+</head>
+<body class=green>
+<div class="container center headings--one-size">
+<header class=header>
+<div class=header__inner>
+<div class=header__logo>
+<a href=/>
+<div class=logo>
+Привет, друг
+</div>
+</a>
+</div>
+<div class=menu-trigger>menu</div>
+</div>
+<nav class=menu>
+<ul class="menu__inner menu__inner--desktop">
+<li><a href=/>Главная</a></li>
+<li><a href=/projects>Мои проекты</a></li>
+<li><a href=/about>Обо мне</a></li>
+<ul class=menu__sub-inner>
+<li class=menu__sub-inner-more-trigger>Внешние ссылки ▾</li>
+<ul class="menu__sub-inner-more hidden">
+<li><a href=/therapist.html>Сверхлокальный психотерапевт</a></li>
+</ul>
+</ul>
+</ul>
+<ul class="menu__inner menu__inner--mobile">
+<li><a href=/>Главная</a></li>
+<li><a href=/projects>Мои проекты</a></li>
+<li><a href=/about>Обо мне</a></li>
+<li><a href=/therapist.html>Сверхлокальный психотерапевт</a></li>
+</ul>
+</nav>
+</header>
+<div class=content>
+<div class=post>
+<h1 class=post-title>
+<a href=https://tookser.github.io/posts/jegalkin/>Полином Жегалкина</a></h1>
+<div class=post-meta>
+<span class=post-date>
+2022-04-15
+</span>
+<span class=post-author>:: Иван</span>
+<span class=post-reading-time>:: 2 min read (249 words)</span>
+</div>
+<span class=post-tags>
+#<a href=https://tookser.github.io/tags/%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/>математика</a>&nbsp;
+</span>
+<div class=post-content><div>
+<p>Многие, наверное, знают о полиномах Жегалкина, это известный способ задания функции алгебры логики. Выглядят они примерно так:</p>
+<p><strong>G(x,y,z) = xy ⊕ yz ⊕ x</strong></p>
+<p>Разумеется, длина каждой <a href=https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BD%D1%8A%D1%8E%D0%BD%D0%BA%D1%86%D0%B8%D1%8F>конъюнкции</a> может быть произвольной, как и их количество. Порядок их не имеет значение, и конъюнкции не должны повторяться (от повторов можно избавляться, уничтожая &ldquo;дубли&rdquo; парами). Также возможна конъюнкция длины <strong>0</strong>, обозначаемая &ldquo;<strong>1</strong>&rdquo;.</p>
+<p>У полиномов Жегалкина есть одно замечательное и простое свойство: каждая функция представима ровно одним полиномом Жегалкина.</p>
+<p>Доказывается это так. Сначала заметим, что сумма (сложение по модулю 2) произвольных двух полиномов Жегалкина равна <strong>0</strong> тогда и только тогда, когда они совпадают (иначе бы нашлось бы два разных значения, и он где-то равнялся бы <strong>1</strong>). Теперь возьмём два разных полинома Жегалкина (&ldquo;разных&rdquo; здесь - разных по записи), и сложим их попарно. У нас получится некоторый новый полином Жегалкина.</p>
+<p>Теперь посмотрим, чему он равен: <strong>0</strong> он не может равняться, т.к. полиномы разные, значит, в нём есть конъюнкции. Тогда возьмём какую-то конъюнкцию минимальной длины, и сделаем все её переменные единицами, а остальные - нулями. На этих переменных полином будет отличаться от значения на &ldquo;всех нулях&rdquo;, и тогда у нас найдётся значение <strong>1</strong> среди этих двух, либо же полином &ldquo;разности&rdquo; изначально равнялся <strong>1</strong>.</p>
+<p>Мы доказали, что все полиномы Жегалкина дают разные функции. Осталось заметить только, что, так как конъюнкций <strong>n</strong> переменных существует <strong>2^n</strong>, полиномов будет <strong>2^(2^n)</strong>, что совпадает с числом булевых функций от <strong>n</strong> переменных.</p>
+<p>Наверное, самое красивое среди булевой логики первого курса. Нет, ещё <a href=https://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%B8%D1%82%D0%B5%D1%80%D0%B8%D0%B9_%D0%9F%D0%BE%D1%81%D1%82%D0%B0>теорема Поста</a> о 5 предполных классах. И автоматы с задержкой.</p>
+</div></div>
+<div class=pagination>
+<div class=pagination__title>
+<span class=pagination__title-h>Остальные записи</span>
+<hr>
+</div>
+<div class=pagination__buttons>
+<span class="button next">
+<a href=https://tookser.github.io/posts/obsidian/>
+<span class=button__text>Об Obsidian для тех, кому надоели лонгриды на эту тему</span>
+<span class=button__icon>→</span>
+</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class=footer__inner>
+<div class=copyright>
+<span>© 2022 Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span>
+</div>
+</div>
+</footer>
+<script src=https://tookser.github.io/assets/main.js></script>
+<script src=https://tookser.github.io/assets/prism.js></script>
+</div>
+</body>
+</html>

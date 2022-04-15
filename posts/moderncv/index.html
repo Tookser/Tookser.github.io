@@ -1,0 +1,119 @@
+<!doctype html><html lang=ru>
+<head>
+<title>ModernCV и мытарства :: Личный сайт Ивана Белашкина</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Как собрать moderncv просто используя TexLive в Docker.">
+<meta name=keywords content="moderncv,резюме">
+<meta name=robots content="noodp">
+<link rel=canonical href=https://tookser.github.io/posts/moderncv/>
+<link rel=stylesheet href=https://tookser.github.io/assets/style.css>
+<link rel=stylesheet href=https://tookser.github.io/assets/green.css>
+<link rel=apple-touch-icon href=https://tookser.github.io/img/apple-touch-icon-192x192.png>
+<link rel="shortcut icon" href=https://tookser.github.io/img/favicon/green.png>
+<meta name=twitter:card content="summary">
+<meta name=twitter:site content>
+<meta name=twitter:creator content="Иван">
+<meta property="og:locale" content="ru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ModernCV и мытарства">
+<meta property="og:description" content="Как собрать moderncv просто используя TexLive в Docker.">
+<meta property="og:url" content="https://tookser.github.io/posts/moderncv/">
+<meta property="og:site_name" content="Личный сайт Ивана Белашкина">
+<meta property="og:image" content="https://tookser.github.io/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2022-04-15 14:51:22 +0300 +0300">
+</head>
+<body class=green>
+<div class="container center headings--one-size">
+<header class=header>
+<div class=header__inner>
+<div class=header__logo>
+<a href=/>
+<div class=logo>
+Привет, друг
+</div>
+</a>
+</div>
+<div class=menu-trigger>menu</div>
+</div>
+<nav class=menu>
+<ul class="menu__inner menu__inner--desktop">
+<li><a href=/>Главная</a></li>
+<li><a href=/projects>Мои проекты</a></li>
+<li><a href=/about>Обо мне</a></li>
+<ul class=menu__sub-inner>
+<li class=menu__sub-inner-more-trigger>Внешние ссылки ▾</li>
+<ul class="menu__sub-inner-more hidden">
+<li><a href=/therapist.html>Сверхлокальный психотерапевт</a></li>
+</ul>
+</ul>
+</ul>
+<ul class="menu__inner menu__inner--mobile">
+<li><a href=/>Главная</a></li>
+<li><a href=/projects>Мои проекты</a></li>
+<li><a href=/about>Обо мне</a></li>
+<li><a href=/therapist.html>Сверхлокальный психотерапевт</a></li>
+</ul>
+</nav>
+</header>
+<div class=content>
+<div class=post>
+<h1 class=post-title>
+<a href=https://tookser.github.io/posts/moderncv/>ModernCV и мытарства</a></h1>
+<div class=post-meta>
+<span class=post-date>
+2022-04-15
+</span>
+<span class=post-author>:: Иван</span>
+<span class=post-reading-time>:: 1 min read (193 words)</span>
+</div>
+<span class=post-tags>
+#<a href=https://tookser.github.io/tags/latex/>latex</a>&nbsp;
+#<a href=https://tookser.github.io/tags/%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/>администрирование</a>&nbsp;
+#<a href=https://tookser.github.io/tags/texlive/>texlive</a>&nbsp;
+</span>
+<div class=post-content><div>
+<p>Для справки, <strong>LaTeX</strong> - система вёрстки, обычно для научных статей, <strong>Docker</strong> - система для контейнеризации (нечто вроде виртуальной машины).</p>
+<p>Немного предыстории. <strong><a href=https://github.com/moderncv/moderncv>ModernCV</a></strong> - шаблон для LaTeX, позволяющий писать красивенькие резюме в pdf. Требует небольшого знания LaTeX-а. В <a href=https://github.com/moderncv/moderncv/raw/master/manual/moderncv_userguide.pdf>документации</a> можно посмотреть, как выглядит.</p>
+<p>Этот шаблон почему-то упорно не хотел нормально собираться на моей системе, и в итоге нашлось более хорошее решение.</p>
+<p>Вот <a href=https://github.com/moderncv/debian-texlive-docker/pkgs/container/debian-texlive-docker>ссылка на docker-образ</a> образ докера с texlive. В нём это резюме собирается следующим образом (рассказываю вариант под Linux с установленным Docker).</p>
+<p>Сначала</p>
+<p><code>docker pull ghcr.io/moderncv/debian-texlive-docker:main</code> - скачивание docker-образа.</p>
+<p>Потом создаём контейнер</p>
+<p><code>docker run -it -v "/путь/к/папке/с/резюме:/mnt" --name ИмяОбраза ghcr.io/moderncv/debian-texlive-docker:main /bin/bash</code></p>
+<p>Это создаёт docker-контейнер по скачанному docker-образу. <em>ИмяОбраза</em> и <em>/путь/к/папке/с/резюме</em> (на вашем диске) нужно заполнить самим. <code>-it</code> позволяет работать в терминале внутри контейнера, <code>-v</code> монтирует папку к пути <code>/mnt</code> внутри докер-контейнера (да, прямо в него, но это не столь важно).</p>
+<p>Остаётся только запускать контейнер с помощью этой команды.</p>
+<p><code>docker exec -it ИмяОбраза /bin/bash</code></p>
+<p>, вы окажетесь в терминале, откуда уже можно собрать резюме с помощью TexLive, зайдя в директорию <code>/mount</code> (внутри контейнера; с вашей ничего не случится). Возможно, понадобится что-то догрузить из пакетов - <code>sudo apt install ...</code> вполне помогало, если вообще понадобилось.</p>
+</div></div>
+<div class=pagination>
+<div class=pagination__title>
+<span class=pagination__title-h>Остальные записи</span>
+<hr>
+</div>
+<div class=pagination__buttons>
+<span class="button next">
+<a href=https://tookser.github.io/posts/jegalkin/>
+<span class=button__text>Полином Жегалкина</span>
+<span class=button__icon>→</span>
+</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class=footer__inner>
+<div class=copyright>
+<span>© 2022 Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span>
+</div>
+</div>
+</footer>
+<script src=https://tookser.github.io/assets/main.js></script>
+<script src=https://tookser.github.io/assets/prism.js></script>
+</div>
+</body>
+</html>

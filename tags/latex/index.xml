@@ -9,7 +9,24 @@
 &lt;p>&lt;code>docker pull ghcr.io/moderncv/debian-texlive-docker:main&lt;/code> - скачивание docker-образа.&lt;/p>
 &lt;p>Потом создаём контейнер&lt;/p>
 &lt;p>&lt;code>docker run -it -v &amp;quot;/путь/к/папке/с/резюме:/mnt&amp;quot; --name ИмяОбраза ghcr.io/moderncv/debian-texlive-docker:main /bin/bash&lt;/code>&lt;/p>
-&lt;p>Это создаёт docker-контейнер по скачанному docker-образу. &lt;em>ИмяОбраза&lt;/em> и &lt;em>/путь/к/папке/с/резюме&lt;/em> (на вашем диске) нужно заполнить самим. &lt;code>-it&lt;/code> позволяет работать в терминале внутри контейнера, &lt;code>-v&lt;/code> монтирует папку к пути &lt;code>/mnt&lt;/code> внутри докер-контейнера (да, прямо в него, но это не столь важно).&lt;/p>
-&lt;p>Остаётся только запускать контейнер с помощью этой команды.&lt;/p>
-&lt;p>&lt;code>docker exec -it ИмяОбраза /bin/bash&lt;/code>&lt;/p>
-&lt;p>, вы окажетесь в терминале, откуда уже можно собрать резюме с помощью TexLive, зайдя в директорию &lt;code>/mount&lt;/code> (внутри контейнера; с вашей ничего не случится). Возможно, понадобится что-то догрузить из пакетов - &lt;code>sudo apt install ...&lt;/code> вполне помогало, если вообще понадобилось.&lt;/p></content></item></channel></rss>
+&lt;p>Это создаёт docker-контейнер по скачанному docker-образу И запускает его. &lt;em>ИмяОбраза&lt;/em> и &lt;em>/путь/к/папке/с/резюме&lt;/em> (на вашем диске) нужно заполнить самим. &lt;code>-it&lt;/code> позволяет работать в терминале внутри контейнера, &lt;code>-v&lt;/code> монтирует папку к пути &lt;code>/mnt&lt;/code> &lt;em>внутри&lt;/em> докер-контейнера (то есть с папкой &lt;code>/mnt&lt;/code> исходной системы ничего не происходит).&lt;/p>
+&lt;p>Теперь нужно выполнить команду&lt;/p>
+&lt;p>&lt;code>docker start ИмяКонтейнера&lt;/code>&lt;/p>
+&lt;p>и&lt;/p>
+&lt;p>&lt;code>docker exec -it ИмяКонтейнера /bin/bash&lt;/code>&lt;/p>
+&lt;p>. Вы окажетесь в терминале, откуда уже можно собрать резюме с помощью TexLive, зайдя в директорию &lt;code>/mount&lt;/code>. Возможно, понадобится что-то догрузить из пакетов - &lt;code>apt install ...&lt;/code> (без &lt;code>sudo&lt;/code> почему-то в этом образе работает) вполне помогало, если вообще понадобилось.&lt;/p>
+&lt;p>В конце можно остановить контейнер с помощью&lt;/p>
+&lt;p>&lt;code>docker stop ИмяКонтейнера&lt;/code>&lt;/p>
+&lt;p>.&lt;/p>
+&lt;p>При повторных использованиях всё так же, начиная с команды&lt;/p>
+&lt;p>&lt;code>docker start ИмяКонтейнера&lt;/code>&lt;/p>
+&lt;p>.&lt;/p>
+&lt;p>Два момента:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>блокируется доступ&lt;/strong> на запись к файлам в монтируемой папке, что неудобно.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>судя по всему, можно автоматизировать.&lt;/p>
+&lt;/li>
+&lt;/ul></content></item></channel></rss>

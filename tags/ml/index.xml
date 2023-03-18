@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ml on Личный сайт Ивана Белашкина</title><link>https://tookser.github.io/tags/ml/</link><description>Recent content in ml on Личный сайт Ивана Белашкина</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sat, 18 Mar 2023 03:21:05 +0300</lastBuildDate><atom:link href="https://tookser.github.io/tags/ml/index.xml" rel="self" type="application/rss+xml"/><item><title>Машинное обучение, ссылки (1)</title><link>https://tookser.github.io/posts/ml_1/</link><pubDate>Sat, 18 Mar 2023 03:21:05 +0300</pubDate><guid>https://tookser.github.io/posts/ml_1/</guid><description>Немного книг, ссылок и сервисов про ML.
+Николенко, Введение в глубокое обучение. Написано местами многословно, но увлекательно, с другой стороны - сложные вещи требуют дополнительного гуглинга. Тензорфлоу там используется согласно сети старый, поэтому на него внимательно не смотрел. https://www.deeplearningbook.org/ (англ.) от Goodfellow с соавторами. Пока не смотрел, возможно также, не скачивается в удобном виде. Лекции и семинары Евгения Соколова (ВШЭ). Классика (15 часов) и глубокое обучение (72*1.5 часа), рекомендовались как хорошие видео с понятными объяснениями.</description><content>&lt;p>Немного книг, ссылок и сервисов про ML.&lt;/p>
+&lt;ol>
+&lt;li>Николенко, Введение в глубокое обучение. Написано местами многословно, но увлекательно, с другой стороны - сложные вещи требуют дополнительного гуглинга. Тензорфлоу там используется согласно сети старый, поэтому на него внимательно не смотрел.&lt;/li>
+&lt;li>&lt;a href="https://www.deeplearningbook.org/">https://www.deeplearningbook.org/&lt;/a> (англ.) от Goodfellow с соавторами. Пока не смотрел, возможно также, не скачивается в удобном виде.&lt;/li>
+&lt;li>Лекции и семинары Евгения Соколова (ВШЭ). &lt;a href="https://www.youtube.com/playlist?list=PLEqoHzpnmTfChItexxg2ZfxCsm-8QPsdS">Классика (15 часов)&lt;/a> и &lt;a href="https://www.youtube.com/playlist?list=PLEwK9wdS5g0qa3PIhR6HBDJD_QnrfP8Ei">глубокое обучение (72*1.5 часа)&lt;/a>, рекомендовались как хорошие видео с понятными объяснениями.&lt;/li>
+&lt;/ol>
+&lt;p>Мелочи.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://zhang-yang.medium.com/how-pytorch-tensors-backward-accumulates-gradient-8d1bf675579b">Статья на медиуме&lt;/a> про autograd в pytorch. См. также немного &lt;a href="https://stackoverflow.com/questions/62067400/understanding-accumulated-gradients-in-pytorch">на SO&lt;/a>.&lt;/li>
+&lt;li>&lt;a href="https://open-assistant.io/ru">https://open-assistant.io/ru&lt;/a>, было бы здорово к этому движу присоединиться.&lt;/li>
+&lt;li>Боты по типу ChatGPT, но в ТГ:
+&lt;ul>
+&lt;li>&lt;a href="https://t.me/talkgptbot">https://t.me/talkgptbot&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://t.me/gpt3_unlim_chatbot">https://t.me/gpt3_unlim_chatbot&lt;/a> (не unlim в бесплатной версии)&lt;/li>
+&lt;li>&lt;a href="https://t.me/chatGPTwrapperbot">https://t.me/chatGPTwrapperbot&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://t.me/chatgpt_karfly_bot">https://t.me/chatgpt_karfly_bot&lt;/a>&lt;/li>
+&lt;li>особняком стоит &lt;a href="https://t.me/VoiceLogBot">https://t.me/VoiceLogBot&lt;/a> - у этого есть конкретное назначение (быть чем-то вроде коуча-дневника, задающим наводящие вопросы на подумать), плюс он принимает голосовые и кружочки (не проверял качество), &lt;del>и безлимитный&lt;/del> небезлимитный(. Чувствую, эта область (psy-боты в ТГ) ещё минимум год будет развиваться.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://huggingface.co/spaces/huggingface/diffuse-the-rest">https://huggingface.co/spaces/huggingface/diffuse-the-rest&lt;/a> inpainting (дорисовывание картинки/скетча), требует также текстовый промт. Иногда выдаёт неинтересное совсем, иногда результат далёк от наброска.&lt;/li>
+&lt;/ul></content></item></channel></rss>

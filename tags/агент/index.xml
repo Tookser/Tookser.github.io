@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>агент on Личный сайт Ивана Белашкина</title><link>https://tookser.github.io/tags/%D0%B0%D0%B3%D0%B5%D0%BD%D1%82/</link><description>Recent content in агент on Личный сайт Ивана Белашкина</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 07 Oct 2024 12:00:00 +0300</lastBuildDate><atom:link href="https://tookser.github.io/tags/%D0%B0%D0%B3%D0%B5%D0%BD%D1%82/index.xml" rel="self" type="application/rss+xml"/><item><title>Агентная модель на основе LLM Voyager, действующая в майнкрафте</title><link>https://tookser.github.io/posts/voyager/</link><pubDate>Mon, 07 Oct 2024 12:00:00 +0300</pubDate><guid>https://tookser.github.io/posts/voyager/</guid><description>Under construction.
+Сегодня (2024-02-01) просмотрел статью про агент Voyager (код). Идея относительно простая, но захотелось разобраться в деталях.
+Модель Voyager на основе LLM GPT-3.5 и GPT-4. Исследует уровень в майнкрафте, с целью &amp;ldquo;как можно больше всего пооткрывать побыстрее&amp;rdquo; (территории и создающиеся предметы).
+Есть три модуля.
+Планировщик (Automatic Curriculum) Итеративный промтер (Iterative Prompting Mechanism) &amp;ldquo;Словарь&amp;rdquo; навыков (Skill Library) Планировщик - на основе полученных от GPT-V описаний вида сцены (например, лес) и персонажа (json описывающий его инвентарь) генерирует Reasoning (рассуждение какое-то, приводящее к&amp;hellip;) и Task.</description><content>&lt;p>Under construction.&lt;/p>
+&lt;p>Сегодня (2024-02-01) просмотрел &lt;a href="https://voyager.minedojo.org">статью про агент Voyager&lt;/a> (&lt;a href="https://github.com/MineDojo/Voyager">код&lt;/a>). Идея относительно простая, но захотелось разобраться в деталях.&lt;/p>
+&lt;p>Модель Voyager на основе LLM GPT-3.5 и GPT-4. Исследует уровень в майнкрафте, с целью &amp;ldquo;как можно больше всего пооткрывать побыстрее&amp;rdquo; (территории и создающиеся предметы).&lt;/p>
+&lt;p>Есть три модуля.&lt;/p>
+&lt;ol>
+&lt;li>Планировщик (Automatic Curriculum)&lt;/li>
+&lt;li>Итеративный промтер (Iterative Prompting Mechanism)&lt;/li>
+&lt;li>&amp;ldquo;Словарь&amp;rdquo; навыков (Skill Library)&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>Планировщик - на основе полученных от GPT-V описаний вида сцены (например, лес) и персонажа (json описывающий его инвентарь) генерирует Reasoning (рассуждение какое-то, приводящее к&amp;hellip;) и Task.
+&lt;ul>
+&lt;li>Task - задача, что нужно сделать. Далее это передаётся словарю навыков.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Словарь навыков как-то формируется.
+&lt;ul>
+&lt;li>Потом по запросу из него выбирается один из навыков, который является программой, и запускается.&lt;/li>
+&lt;li>Комбинирование и появление навыков наименее понимаю. Используется feedback от среды, опять же в текстовом виде.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Итеративный промтер как-то генерирует новые промты.
+&lt;ul>
+&lt;li>Видимо, к предыдущему: мы видим ошибки от кода выполняемого, соответственно понимаем что пришло к успеху и что нет.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Картиночки в статье красивые, есть код :)&lt;/p>
+&lt;h4 id="см-также">См. также:&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/yoheinakajima/babyagi">BabyAGI&lt;/a>&lt;/li>
+&lt;li>ChaosGPT - что-то вроде BabyAGI, только с изначально деструктивными промтами (не одобряю, но задумка на текущем уровне - как высечь море, что-то такое).&lt;/li>
+&lt;/ul></content></item></channel></rss>

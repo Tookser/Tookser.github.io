@@ -1,12 +1,12 @@
 <!doctype html><html lang=ru>
 <head>
-<title>Pycharm :: Личный сайт Ивана Белашкина</title>
+<title>MCP - протокол для взаимодействия LLM с сервисами :: Личный сайт Ивана Белашкина</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Ошибка 'Invalid Python Interpreter selected for the project'">
-<meta name=keywords content="pycharm,pycharm professional,.idea,invalid interpreter">
+<meta name=description content="USB-C для нейросетей">
+<meta name=keywords content="нейронные сети,LLM,агентные модели,MCP">
 <meta name=robots content="noodp">
-<link rel=canonical href=https://tookser.github.io/posts/pycharm/>
+<link rel=canonical href=https://tookser.github.io/posts/ml_2/>
 <link rel=stylesheet href=https://tookser.github.io/assets/style.css>
 <link rel=stylesheet href=https://tookser.github.io/assets/green.css>
 <link rel=apple-touch-icon href=https://tookser.github.io/img/apple-touch-icon-192x192.png>
@@ -16,14 +16,14 @@
 <meta name=twitter:creator content="Иван">
 <meta property="og:locale" content="ru">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pycharm">
-<meta property="og:description" content="Ошибка 'Invalid Python Interpreter selected for the project'">
-<meta property="og:url" content="https://tookser.github.io/posts/pycharm/">
+<meta property="og:title" content="MCP - протокол для взаимодействия LLM с сервисами">
+<meta property="og:description" content="USB-C для нейросетей">
+<meta property="og:url" content="https://tookser.github.io/posts/ml_2/">
 <meta property="og:site_name" content="Личный сайт Ивана Белашкина">
 <meta property="og:image" content="https://tookser.github.io/">
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
-<meta property="article:published_time" content="2023-08-22 00:03:20 +0300 +0300">
+<meta property="article:published_time" content="2025-03-26 21:35:11 +0300 +0300">
 </head>
 <body class=green>
 <div class="container center headings--one-size">
@@ -61,29 +61,29 @@
 <div class=content>
 <div class=post>
 <h1 class=post-title>
-<a href=https://tookser.github.io/posts/pycharm/>Pycharm</a></h1>
+<a href=https://tookser.github.io/posts/ml_2/>MCP - протокол для взаимодействия LLM с сервисами</a></h1>
 <div class=post-meta>
 <span class=post-date>
-2023-08-22
+2025-03-26
 </span>
 <span class=post-author>:: Иван</span>
-<span class=post-reading-time>:: 1 min read (75 words)</span>
+<span class=post-reading-time>:: 1 min read (101 words)</span>
 </div>
 <span class=post-tags>
-#<a href=https://tookser.github.io/tags/pycharm/>pycharm</a>&nbsp;
-#<a href=https://tookser.github.io/tags/python/>python</a>&nbsp;
-#<a href=https://tookser.github.io/tags/%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B5/>полезное</a>&nbsp;
+#<a href=https://tookser.github.io/tags/ai/>ai</a>&nbsp;
+#<a href=https://tookser.github.io/tags/ml/>ml</a>&nbsp;
+#<a href=https://tookser.github.io/tags/agency/>agency</a>&nbsp;
 </span>
 <div class=post-content><div>
-<p>Ошибка <code>Invalid Python Interpreter selected for the project</code>.
-Понадобилось использовать Pycharm (Professional Edition).</p>
+<p>За два дня дважды в разных местах попалось упоминание MCP (Model Context Protocol) (открытая технология Anthropic).</p>
+<p>Что это:</p>
 <ul>
-<li>Сначала создал проект в одной папке</li>
-<li>потом перенёс в другую.</li>
-<li>Удалил (в линуксе это требуется) подпапку с виртуальной средой <code>venv/</code>, создал заново.</li>
-<li>Результат - среда разработки &ldquo;не подхватывается&rdquo;, вылезают сообщения об ошибке с упоминанием старого пути.</li>
+<li><a href=https://modelcontextprotocol.io/introduction>https://modelcontextprotocol.io/introduction</a> ссылка на введение в протокол. Может смущать наличие и host, и client, и server: как я понял почитав сайт, основная единица это server, который отвечает на запросы, которые client делает (по указке hostа).</li>
+<li><a href=https://mcp.so/>https://mcp.so/</a> тут много примеров MCP.</li>
+<li><a href=https://habr.com/ru/articles/893482/>https://habr.com/ru/articles/893482/</a> - статья про MCP (краткая обзорная часть и примеры кода).</li>
 </ul>
-<p>Решение - закрыть Pycharm PE и стереть подпапку <code>.idea/</code>, создаваемую pycharm-ом. При повторном открытии всё сразу подхватывается. Подозреваю, это не единственная проблема которую можно так решить.</p>
+<p>См. также <a href=https://en.wikipedia.org/wiki/Language_Server_Protocol>LSP</a> :-) (который во многом похожее делает).</p>
+<p>(С точки зрения AI Safety&mldr; пф-пф-пф. Ну, клиент может обрубать некорректные запросы от хоста. Можно сделать сервер-gateway, который будет ограничивать права в зависимости от).</p>
 </div></div>
 <div class=pagination>
 <div class=pagination__title>
@@ -91,15 +91,9 @@
 <hr>
 </div>
 <div class=pagination__buttons>
-<span class="button previous">
-<a href=https://tookser.github.io/posts/neural1/>
-<span class=button__icon>←</span>
-<span class=button__text>Промт-инъекция, видео Карпатого и пара быстрых моделей</span>
-</a>
-</span>
 <span class="button next">
-<a href=https://tookser.github.io/posts/hotkey/>
-<span class=button__text>Горячие клавиши</span>
+<a href=https://tookser.github.io/posts/voyager/>
+<span class=button__text>Агентная модель на основе LLM Voyager, действующая в майнкрафте</span>
 <span class=button__icon>→</span>
 </a>
 </span>

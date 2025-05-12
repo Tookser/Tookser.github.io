@@ -13,7 +13,7 @@ draft = false
 
 Мой конфиг [Obsidian tray](https://github.com/dragonwocky/obsidian-tray) плагина (позволяет убирать Обсидиан в значок на панели задач). Ubuntu 22.04 LTS.
 
-![Фото конфигурации](obsidian_tray_config.jpg)
+![Фото конфигурации](/obsidian_tray_config.jpg)
 
 1-я галочка (автозапуск) почему-то не работает, поэтому сделал автозапуск через добавление .desktop файла в
 `~/.config/autostart` , а галочку снял от греха подальше.

@@ -1,0 +1,146 @@
+<!doctype html><html lang=ru>
+<head>
+<title>TOTP :: Личный сайт Ивана Белашкина</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Что такое TOTP, и какие опенсорсные приложения на Android для этого лучше">
+<meta name=keywords content="2FA,TOTP,OTP,HOTP">
+<meta name=robots content="noodp">
+<link rel=canonical href=https://tookser.github.io/posts/otp/>
+<link rel=stylesheet href=https://tookser.github.io/assets/style.css>
+<link rel=stylesheet href=https://tookser.github.io/assets/green.css>
+<link rel=apple-touch-icon href=https://tookser.github.io/img/apple-touch-icon-192x192.png>
+<link rel="shortcut icon" href=https://tookser.github.io/img/favicon/green.png>
+<meta name=twitter:card content="summary">
+<meta name=twitter:site content>
+<meta name=twitter:creator content="Иван">
+<meta property="og:locale" content="ru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TOTP">
+<meta property="og:description" content="Что такое TOTP, и какие опенсорсные приложения на Android для этого лучше">
+<meta property="og:url" content="https://tookser.github.io/posts/otp/">
+<meta property="og:site_name" content="Личный сайт Ивана Белашкина">
+<meta property="og:image" content="https://tookser.github.io/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2025-06-27 10:57:51 +0300 +0300">
+</head>
+<body class=green>
+<div class="container center headings--one-size">
+<header class=header>
+<div class=header__inner>
+<div class=header__logo>
+<a href=/>
+<div class=logo>
+Привет, друг
+</div>
+</a>
+</div>
+<div class=menu-trigger>menu</div>
+</div>
+<nav class=menu>
+<ul class="menu__inner menu__inner--desktop">
+<li><a href=/>Главная</a></li>
+<li><a href=/projects>Мои проекты</a></li>
+<li><a href=/about>Обо мне</a></li>
+<ul class=menu__sub-inner>
+<li class=menu__sub-inner-more-trigger>Внешние ссылки ▾</li>
+<ul class="menu__sub-inner-more hidden">
+<li><a href=/therapist.html>Сверхлокальный психотерапевт</a></li>
+</ul>
+</ul>
+</ul>
+<ul class="menu__inner menu__inner--mobile">
+<li><a href=/>Главная</a></li>
+<li><a href=/projects>Мои проекты</a></li>
+<li><a href=/about>Обо мне</a></li>
+<li><a href=/therapist.html>Сверхлокальный психотерапевт</a></li>
+</ul>
+</nav>
+</header>
+<div class=content>
+<div class=post>
+<h1 class=post-title>
+<a href=https://tookser.github.io/posts/otp/>TOTP</a></h1>
+<div class=post-meta>
+<span class=post-date>
+2025-06-27
+</span>
+<span class=post-author>:: Иван</span>
+<span class=post-reading-time>:: 1 min read (164 words)</span>
+</div>
+<span class=post-tags>
+#<a href=https://tookser.github.io/tags/security/>security</a>&nbsp;
+#<a href=https://tookser.github.io/tags/android/>android</a>&nbsp;
+</span>
+<div class=post-content><div>
+<h2 id=что-такое-totp>Что такое TOTP<a href=#что-такое-totp class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<p>TOTP - для двухфакторной авторизации. Вместо кода на мобильный телефон (считается небезопасным).</p>
+<h3 id=схема-работы>Схема работы:<a href=#схема-работы class=hanchor arialabel=Anchor>&#8983;</a> </h3>
+<ol>
+<li>У клиента и сервера - есть общий секрет.</li>
+<li>У клиента и сервера - синхронизированы часы.</li>
+<li>Когда нужно авторизоваться, сервер вычисляет <strong>HASH(T+SECRET)</strong>. T - это количество интервалов времени (например 30-секундных) с <a href=https://en.wikipedia.org/wiki/Unix_time>unix epoch</a>.</li>
+<li>Клиент тоже считает <strong>HASH(T+SECRET)</strong>.</li>
+<li>Клиент и сервер берут определённым общеизвестным способом первые цифры от хэша.</li>
+<li>Клиент передаёт серверу токен, сервер делает сравнение.</li>
+</ol>
+<h3 id=возможные-уязвимостипроблемы>Возможные уязвимости/проблемы:<a href=#возможные-уязвимостипроблемы class=hanchor arialabel=Anchor>&#8983;</a> </h3>
+<ol>
+<li>Может утечь общий секрет, как со стороны клиента, так и со стороны сервера. С кодами на мобильный телефон <em>именно этого</em> не может произойти, к слову.</li>
+<li>Можно перехватить одноразовый ключ.</li>
+<li>Может произойти рассинхрон времени: тогда нельзя будет авторизоваться.</li>
+</ol>
+<ul>
+<li><a href=https://en.wikipedia.org/wiki/Time-based_one-time_password>wiki</a></li>
+<li><a href=https://ru.wikipedia.org/wiki/TOTP>ru-wiki</a></li>
+</ul>
+<h2 id=опенсорсные-приложения-для-android-для-totp>Опенсорсные приложения для Android для TOTP.<a href=#опенсорсные-приложения-для-android-для-totp class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<p>Из лучших, рекомендуют</p>
+<ul>
+<li><a href=https://getaegis.app>Aegis</a> (посмотрел, выглядит нормально, есть какая-то защита).</li>
+<li><a href=https://github.com/helloworld1/FreeOTPPlus>freeOTP+</a> (пока не смотрел, форк freeOTP).</li>
+</ul>
+<p>ещё смотрел</p>
+<ul>
+<li>
+<p><a href=https://gitlab.com/ATechnoHazard/secur>secur</a> - заброшенный, как плюс разве что простота интерфейса.</p>
+</li>
+<li>
+<p><a href=https://www.reddit.com/r/privacytoolsIO/comments/do46ic/security_of_totp_apps_on_android/>reddit</a> что-то про Aegis и andOTP</p>
+</li>
+</ul>
+<h2 id=зачем>Зачем<a href=#зачем class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<p>Гитхаб требует начать использовать двухфакторку от отдельных аккаунтов.</p>
+<h2 id=hotp>HOTP<a href=#hotp class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<p>to be written&mldr;</p>
+</div></div>
+<div class=pagination>
+<div class=pagination__title>
+<span class=pagination__title-h>Остальные записи</span>
+<hr>
+</div>
+<div class=pagination__buttons>
+<span class="button next">
+<a href=https://tookser.github.io/posts/hackathon2/>
+<span class=button__text>Мой третий хакатон (отчёт по хакатону ogon.ai - MCP)</span>
+<span class=button__icon>→</span>
+</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class=footer__inner>
+<div class=copyright>
+<span>© 2025 Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span>
+</div>
+</div>
+</footer>
+<script src=https://tookser.github.io/assets/main.js></script>
+<script src=https://tookser.github.io/assets/prism.js></script>
+</div>
+</body>
+</html>

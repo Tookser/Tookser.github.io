@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>android on Личный сайт Ивана Белашкина</title><link>https://tookser.github.io/tags/android/</link><description>Recent content in android on Личный сайт Ивана Белашкина</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Fri, 27 Jun 2025 10:57:51 +0300</lastBuildDate><atom:link href="https://tookser.github.io/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>TOTP</title><link>https://tookser.github.io/posts/otp/</link><pubDate>Fri, 27 Jun 2025 10:57:51 +0300</pubDate><guid>https://tookser.github.io/posts/otp/</guid><description>Что такое TOTP TOTP - для двухфакторной авторизации. Вместо кода на мобильный телефон (считается небезопасным).
+Схема работы: У клиента и сервера - есть общий секрет. У клиента и сервера - синхронизированы часы. Когда нужно авторизоваться, сервер вычисляет HASH(T+SECRET). T - это количество интервалов времени (например 30-секундных) с unix epoch. Клиент тоже считает HASH(T+SECRET). Клиент и сервер берут определённым общеизвестным способом первые цифры от хэша. Клиент передаёт серверу токен, сервер делает сравнение.</description><content>&lt;h2 id="что-такое-totp">Что такое TOTP&lt;/h2>
+&lt;p>TOTP - для двухфакторной авторизации. Вместо кода на мобильный телефон (считается небезопасным).&lt;/p>
+&lt;h3 id="схема-работы">Схема работы:&lt;/h3>
+&lt;ol>
+&lt;li>У клиента и сервера - есть общий секрет.&lt;/li>
+&lt;li>У клиента и сервера - синхронизированы часы.&lt;/li>
+&lt;li>Когда нужно авторизоваться, сервер вычисляет &lt;strong>HASH(T+SECRET)&lt;/strong>. T - это количество интервалов времени (например 30-секундных) с &lt;a href="https://en.wikipedia.org/wiki/Unix_time">unix epoch&lt;/a>.&lt;/li>
+&lt;li>Клиент тоже считает &lt;strong>HASH(T+SECRET)&lt;/strong>.&lt;/li>
+&lt;li>Клиент и сервер берут определённым общеизвестным способом первые цифры от хэша.&lt;/li>
+&lt;li>Клиент передаёт серверу токен, сервер делает сравнение.&lt;/li>
+&lt;/ol>
+&lt;h3 id="возможные-уязвимостипроблемы">Возможные уязвимости/проблемы:&lt;/h3>
+&lt;ol>
+&lt;li>Может утечь общий секрет, как со стороны клиента, так и со стороны сервера. С кодами на мобильный телефон &lt;em>именно этого&lt;/em> не может произойти, к слову.&lt;/li>
+&lt;li>Можно перехватить одноразовый ключ.&lt;/li>
+&lt;li>Может произойти рассинхрон времени: тогда нельзя будет авторизоваться.&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>&lt;a href="https://en.wikipedia.org/wiki/Time-based_one-time_password">wiki&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ru.wikipedia.org/wiki/TOTP">ru-wiki&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="опенсорсные-приложения-для-android-для-totp">Опенсорсные приложения для Android для TOTP.&lt;/h2>
+&lt;p>Из лучших, рекомендуют&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://getaegis.app">Aegis&lt;/a> (посмотрел, выглядит нормально, есть какая-то защита).&lt;/li>
+&lt;li>&lt;a href="https://github.com/helloworld1/FreeOTPPlus">freeOTP+&lt;/a> (пока не смотрел, форк freeOTP).&lt;/li>
+&lt;/ul>
+&lt;p>ещё смотрел&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://gitlab.com/ATechnoHazard/secur">secur&lt;/a> - заброшенный, как плюс разве что простота интерфейса.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.reddit.com/r/privacytoolsIO/comments/do46ic/security_of_totp_apps_on_android/">reddit&lt;/a> что-то про Aegis и andOTP&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="зачем">Зачем&lt;/h2>
+&lt;p>Гитхаб требует начать использовать двухфакторку от отдельных аккаунтов.&lt;/p>
+&lt;h2 id="hotp">HOTP&lt;/h2>
+&lt;p>to be written&amp;hellip;&lt;/p></content></item></channel></rss>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>security on Личный сайт Ивана Белашкина</title><link>https://tookser.github.io/tags/security/</link><description>Recent content in security on Личный сайт Ивана Белашкина</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Fri, 27 Jun 2025 10:57:51 +0300</lastBuildDate><atom:link href="https://tookser.github.io/tags/security/index.xml" rel="self" type="application/rss+xml"/><item><title>TOTP</title><link>https://tookser.github.io/posts/otp/</link><pubDate>Fri, 27 Jun 2025 10:57:51 +0300</pubDate><guid>https://tookser.github.io/posts/otp/</guid><description>Что такое TOTP TOTP - для двухфакторной авторизации. Вместо кода на мобильный телефон (считается небезопасным).
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>security on Личный сайт Ивана Белашкина</title><link>https://tookser.github.io/tags/security/</link><description>Recent content in security on Личный сайт Ивана Белашкина</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Fri, 27 Jun 2025 10:57:51 +0300</lastBuildDate><atom:link href="https://tookser.github.io/tags/security/index.xml" rel="self" type="application/rss+xml"/><item><title>TOTP, HOTP</title><link>https://tookser.github.io/posts/otp/</link><pubDate>Fri, 27 Jun 2025 10:57:51 +0300</pubDate><guid>https://tookser.github.io/posts/otp/</guid><description>Что такое TOTP TOTP - для двухфакторной авторизации. Вместо кода на мобильный телефон (считается небезопасным).
 Схема работы: У клиента и сервера - есть общий секрет. У клиента и сервера - синхронизированы часы. Когда нужно авторизоваться, сервер вычисляет HASH(T+SECRET). T - это количество интервалов времени (например 30-секундных) с unix epoch. Клиент тоже считает HASH(T+SECRET). Клиент и сервер берут определённым общеизвестным способом первые цифры от хэша. Клиент передаёт серверу токен, сервер делает сравнение.</description><content>&lt;h2 id="что-такое-totp">Что такое TOTP&lt;/h2>
 &lt;p>TOTP - для двухфакторной авторизации. Вместо кода на мобильный телефон (считается небезопасным).&lt;/p>
 &lt;h3 id="схема-работы">Схема работы:&lt;/h3>
@@ -37,5 +37,31 @@
 &lt;/ul>
 &lt;h2 id="зачем">Зачем&lt;/h2>
 &lt;p>Гитхаб требует начать использовать двухфакторку от отдельных аккаунтов.&lt;/p>
-&lt;h2 id="hotp">HOTP&lt;/h2>
-&lt;p>to be written&amp;hellip;&lt;/p></content></item></channel></rss>
+&lt;h2 id="что-такое-hotp">Что такое HOTP&lt;/h2>
+&lt;p>(2025-07-12)&lt;/p>
+&lt;p>Эта схема стала предшественником &lt;strong>TOTP&lt;/strong>.&lt;/p>
+&lt;h3 id="схема-работы-1">Схема работы:&lt;/h3>
+&lt;ol>
+&lt;li>У клиента и сервера - общий секрет &lt;strong>SECRET&lt;/strong>.&lt;/li>
+&lt;li>У клиента и сервера - общий счётчик &lt;strong>I&lt;/strong>.&lt;/li>
+&lt;li>Когда нужно авторизоваться, сервер вычисляет &lt;strong>HASH(SECRET, I)&lt;/strong>. &lt;strong>HASH&lt;/strong> - описывается что SHA1, хотя и считается уязвимым к коллизиям.&lt;/li>
+&lt;li>Клиент вычисляет &lt;strong>HASH(SECRET, I)&lt;/strong>.&lt;/li>
+&lt;li>Клиент и сервер выделяют общеизвестным способом цифры (6-8 цифр) из полученного хэша.&lt;/li>
+&lt;li>Клиент посылает цифры на сервер.&lt;/li>
+&lt;li>Происходит сравнение, если совпало - успех.&lt;/li>
+&lt;li>При &lt;strong>успешной авторизации&lt;/strong> - происходит инкремент счётчика сервера.&lt;/li>
+&lt;li>В любом случае - происходит инкремент счётчика клиента.&lt;/li>
+&lt;/ol>
+&lt;h3 id="рассинхронизация">Рассинхронизация&lt;/h3>
+&lt;p>Допустима ситуация, когда у клиента счётчик больше, чем у сервера. (Т.к. условия инкремента счётчика отличаются). Тогда сервер вычисляет несколько кодов &amp;ldquo;вперёд&amp;rdquo; (например, для I+1, I+2, &amp;hellip; I+5), и если хоть один из них совпадает - авторизация также проходит успешно. Происходит &lt;em>ресинхронизация&lt;/em>, см. ниже детали.&lt;/p>
+&lt;h3 id="ресинхронизация">Ресинхронизация&lt;/h3>
+&lt;p>(похожее название).&lt;/p>
+&lt;p>Если &lt;em>рассинхронизация&lt;/em> происходит, то при &lt;em>ресинхронизации&lt;/em> (процессе установления счётчиков в одинаковое число) может быть также запрошено согласно стандарту ещё несколько кодов от клиента (чтобы атакующий не мог положиться на &amp;ldquo;достаточно чтобы мой рандомный код совпал с одним из 6 кодов, а не только с 1&amp;rdquo;).&lt;/p>
+&lt;p>После успеха счётчик сервера устанавливается равный счётчику клиента.&lt;/p>
+&lt;h3 id="возможные-вектора-атаки">Возможные вектора атаки&lt;/h3>
+&lt;p>(to be continued)&lt;/p>
+&lt;h3 id="ссылки">Ссылки&lt;/h3>
+&lt;ul>
+&lt;li>(для деталей и уточнений) &lt;a href="https://datatracker.ietf.org/doc/html/rfc4226">RFC 4226&lt;/a>&lt;/li>
+&lt;li>(менее полезное в случае непонимания) &lt;a href="https://ru.wikipedia.org/wiki/HOTP">ру-вики&lt;/a>, &lt;a href="https://en.wikipedia.org/wiki/HOTP">en-wiki&lt;/a>&lt;/li>
+&lt;/ul></content></item></channel></rss>

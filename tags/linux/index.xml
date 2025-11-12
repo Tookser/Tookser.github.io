@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on Личный сайт Ивана Белашкина</title><link>https://tookser.github.io/tags/linux/</link><description>Recent content in linux on Личный сайт Ивана Белашкина</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 14 Apr 2025 19:25:55 +0300</lastBuildDate><atom:link href="https://tookser.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Автозапуск обсидиана, горячие клавиши для обсидиана, нахождение обсидиана в трее.</title><link>https://tookser.github.io/posts/obsidian_1/</link><pubDate>Mon, 14 Apr 2025 19:25:55 +0300</pubDate><guid>https://tookser.github.io/posts/obsidian_1/</guid><description>Мой конфиг Obsidian tray плагина (позволяет убирать Обсидиан в значок на панели задач). Ubuntu 22.04 LTS.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on Личный сайт Ивана Белашкина</title><link>https://tookser.github.io/tags/linux/</link><description>Recent content in linux on Личный сайт Ивана Белашкина</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Wed, 12 Nov 2025 22:13:08 +0300</lastBuildDate><atom:link href="https://tookser.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Инструкция: как мигрировать БД из PasswordSafe в KeePassXC</title><link>https://tookser.github.io/posts/passwordsafe_to_keepassxc_migration/</link><pubDate>Wed, 12 Nov 2025 22:13:08 +0300</pubDate><guid>https://tookser.github.io/posts/passwordsafe_to_keepassxc_migration/</guid><description>Что и зачем KeePassXC - опенсорсный парольный менеджер, он хранит пароли. Он гораздо функциональнее и удобнее, чем PasswordSafe.
+Чтобы перейти из одного в другой, сохранив пароли - нужна миграция БД из PasswordSafe в KeePassXC.
+Ориентировался на эту инструкцию, но упростил из-за апдейтов программы.
+Подготовка Создаём RAM-диск: sudo mkdir /mnt/NAME sudo mount -o size=10M -t tmpfs tmpfs /mnt/NAME (он должен исчезнуть после перезагрузки).
+Устанавливаем KeePass2x. (он понадобится для промежуточного этапа переноса).</description><content>&lt;h2 id="что-и-зачем">Что и зачем&lt;/h2>
+&lt;p>&lt;code>KeePassXC&lt;/code> - опенсорсный парольный менеджер, он хранит пароли. Он гораздо функциональнее и удобнее, чем &lt;code>PasswordSafe&lt;/code>.&lt;/p>
+&lt;p>Чтобы перейти из одного в другой, сохранив пароли - нужна миграция БД из &lt;code>PasswordSafe&lt;/code> в &lt;code>KeePassXC&lt;/code>.&lt;/p>
+&lt;p>Ориентировался на &lt;a href="https://infosec.press/ktneely/migrating-passwordsafe-to-keepassxc">эту инструкцию&lt;/a>, но упростил из-за апдейтов программы.&lt;/p>
+&lt;h2 id="подготовка">Подготовка&lt;/h2>
+&lt;ul>
+&lt;li>Создаём RAM-диск:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo mkdir /mnt/NAME
+sudo mount -o size&lt;span style="color:#f92672">=&lt;/span>10M -t tmpfs tmpfs /mnt/NAME
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>(он должен исчезнуть после перезагрузки).&lt;/p>
+&lt;ul>
+&lt;li>Устанавливаем &lt;a href="https://keepass.info/help/v2/setup.html">KeePass2x&lt;/a>. (он понадобится для промежуточного этапа переноса).&lt;/li>
+&lt;li>Устанавливаем &lt;a href="https://keepassxc.org/">KeePassXC&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="шаги">&lt;strong>Шаги:&lt;/strong>&lt;/h2>
+&lt;ol>
+&lt;li>Экспортируем из PasswordSafe в формате .xml &lt;em>RAM-диск&lt;/em>. (в примере &lt;code>/mnt/NAME&lt;/code>) Сохраняем все поля.&lt;/li>
+&lt;li>В KeePass2x, создаём шифрованную БД (не рекомендую использовать тот же пароль, что был в PS), уже на обычном диске. Файл должен получить расширение &lt;code>.kdbx&lt;/code>.&lt;/li>
+&lt;li>(Опционально) Рекомендуется удалить sample entries, чтобы не отвлекали (2 демонстрационных &lt;code>entry&lt;/code>, которые есть в новой базе).&lt;/li>
+&lt;li>В KeePass2x, импортируем с диска в оперативной памяти (формат импорта - PasswordSafe XML).&lt;/li>
+&lt;li>Уже в KeePassXC открываем БД, созданную ранее.&lt;/li>
+&lt;li>Удаляем файлы &lt;em>RAM-диск&lt;/em> (&lt;code>/mnt/NAME&lt;/code>).&lt;/li>
+&lt;/ol>
+&lt;p>(Для проверки можно посмотреть &lt;code>Database -&amp;gt; Database Reports...&lt;/code> и посмотреть на Number of Entries, оно будет тем же, что и в PasswordSafe.)&lt;/p></content></item><item><title>Автозапуск обсидиана, горячие клавиши для обсидиана, нахождение обсидиана в трее.</title><link>https://tookser.github.io/posts/obsidian_1/</link><pubDate>Mon, 14 Apr 2025 19:25:55 +0300</pubDate><guid>https://tookser.github.io/posts/obsidian_1/</guid><description>Мой конфиг Obsidian tray плагина (позволяет убирать Обсидиан в значок на панели задач). Ubuntu 22.04 LTS.
 1-я галочка (автозапуск) почему-то не работает, поэтому сделал автозапуск через добавление .desktop файла в ~/.config/autostart , а галочку снял от греха подальше.
 winkey в горячей клавише не получилось внедрить — пользуюсь ctrl+shift+o по умолчанию.
 Сейчас работает так: при закрытии убирается в трей, по горячей клавише/клике на значок возвращает. Можно свернуть окно — тогда не убирает в трей, удобно, если хочется подвигать мышкой.</description><content>&lt;p>Мой конфиг &lt;a href="https://github.com/dragonwocky/obsidian-tray">Obsidian tray&lt;/a> плагина (позволяет убирать Обсидиан в значок на панели задач). Ubuntu 22.04 LTS.&lt;/p>

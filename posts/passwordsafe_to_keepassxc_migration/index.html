@@ -1,0 +1,133 @@
+<!doctype html><html lang=ru>
+<head>
+<title>Инструкция: как мигрировать БД из PasswordSafe в KeePassXC :: Личный сайт Ивана Белашкина</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Как перенести базу данных из парольного менеджера PasswordSafe - KeePassXC">
+<meta name=keywords content="KeePassXC,PasswordSafe,Парольный менеджер">
+<meta name=robots content="noodp">
+<link rel=canonical href=https://tookser.github.io/posts/passwordsafe_to_keepassxc_migration/>
+<link rel=stylesheet href=https://tookser.github.io/assets/style.css>
+<link rel=stylesheet href=https://tookser.github.io/assets/green.css>
+<link rel=apple-touch-icon href=https://tookser.github.io/img/apple-touch-icon-192x192.png>
+<link rel="shortcut icon" href=https://tookser.github.io/img/favicon/green.png>
+<meta name=twitter:card content="summary">
+<meta name=twitter:site content>
+<meta name=twitter:creator content="Иван">
+<meta property="og:locale" content="ru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Инструкция: как мигрировать БД из PasswordSafe в KeePassXC">
+<meta property="og:description" content="Как перенести базу данных из парольного менеджера PasswordSafe - KeePassXC">
+<meta property="og:url" content="https://tookser.github.io/posts/passwordsafe_to_keepassxc_migration/">
+<meta property="og:site_name" content="Личный сайт Ивана Белашкина">
+<meta property="og:image" content="https://tookser.github.io/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2025-11-12 22:13:08 +0300 +0300">
+</head>
+<body class=green>
+<div class="container center headings--one-size">
+<header class=header>
+<div class=header__inner>
+<div class=header__logo>
+<a href=/>
+<div class=logo>
+Привет, друг
+</div>
+</a>
+</div>
+<div class=menu-trigger>menu</div>
+</div>
+<nav class=menu>
+<ul class="menu__inner menu__inner--desktop">
+<li><a href=/>Главная</a></li>
+<li><a href=/projects>Мои проекты</a></li>
+<li><a href=/about>Обо мне</a></li>
+<ul class=menu__sub-inner>
+<li class=menu__sub-inner-more-trigger>Внешние ссылки ▾</li>
+<ul class="menu__sub-inner-more hidden">
+<li><a href=/therapist.html>Сверхлокальный психотерапевт</a></li>
+</ul>
+</ul>
+</ul>
+<ul class="menu__inner menu__inner--mobile">
+<li><a href=/>Главная</a></li>
+<li><a href=/projects>Мои проекты</a></li>
+<li><a href=/about>Обо мне</a></li>
+<li><a href=/therapist.html>Сверхлокальный психотерапевт</a></li>
+</ul>
+</nav>
+</header>
+<div class=content>
+<div class=post>
+<h1 class=post-title>
+<a href=https://tookser.github.io/posts/passwordsafe_to_keepassxc_migration/>Инструкция: как мигрировать БД из PasswordSafe в KeePassXC</a></h1>
+<div class=post-meta>
+<span class=post-date>
+2025-11-12
+</span>
+<span class=post-author>:: Иван</span>
+<span class=post-reading-time>:: 1 min read (172 words)</span>
+</div>
+<span class=post-tags>
+#<a href=https://tookser.github.io/tags/security/>security</a>&nbsp;
+#<a href=https://tookser.github.io/tags/linux/>linux</a>&nbsp;
+#<a href=https://tookser.github.io/tags/%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B5/>полезное</a>&nbsp;
+#<a href=https://tookser.github.io/tags/%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/>администрирование</a>&nbsp;
+</span>
+<div class=post-content><div>
+<h2 id=что-и-зачем>Что и зачем<a href=#что-и-зачем class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<p><code>KeePassXC</code> - опенсорсный парольный менеджер, он хранит пароли. Он гораздо функциональнее и удобнее, чем <code>PasswordSafe</code>.</p>
+<p>Чтобы перейти из одного в другой, сохранив пароли - нужна миграция БД из <code>PasswordSafe</code> в <code>KeePassXC</code>.</p>
+<p>Ориентировался на <a href=https://infosec.press/ktneely/migrating-passwordsafe-to-keepassxc>эту инструкцию</a>, но упростил из-за апдейтов программы.</p>
+<h2 id=подготовка>Подготовка<a href=#подготовка class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<ul>
+<li>Создаём RAM-диск:</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>sudo mkdir /mnt/NAME
+sudo mount -o size<span style=color:#f92672>=</span>10M -t tmpfs tmpfs /mnt/NAME
+</code></pre></div><p>(он должен исчезнуть после перезагрузки).</p>
+<ul>
+<li>Устанавливаем <a href=https://keepass.info/help/v2/setup.html>KeePass2x</a>. (он понадобится для промежуточного этапа переноса).</li>
+<li>Устанавливаем <a href=https://keepassxc.org/>KeePassXC</a>.</li>
+</ul>
+<h2 id=шаги><strong>Шаги:</strong><a href=#шаги class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<ol>
+<li>Экспортируем из PasswordSafe в формате .xml <em>RAM-диск</em>. (в примере <code>/mnt/NAME</code>) Сохраняем все поля.</li>
+<li>В KeePass2x, создаём шифрованную БД (не рекомендую использовать тот же пароль, что был в PS), уже на обычном диске. Файл должен получить расширение <code>.kdbx</code>.</li>
+<li>(Опционально) Рекомендуется удалить sample entries, чтобы не отвлекали (2 демонстрационных <code>entry</code>, которые есть в новой базе).</li>
+<li>В KeePass2x, импортируем с диска в оперативной памяти (формат импорта - PasswordSafe XML).</li>
+<li>Уже в KeePassXC открываем БД, созданную ранее.</li>
+<li>Удаляем файлы <em>RAM-диск</em> (<code>/mnt/NAME</code>).</li>
+</ol>
+<p>(Для проверки можно посмотреть <code>Database -> Database Reports...</code> и посмотреть на Number of Entries, оно будет тем же, что и в PasswordSafe.)</p>
+</div></div>
+<div class=pagination>
+<div class=pagination__title>
+<span class=pagination__title-h>Остальные записи</span>
+<hr>
+</div>
+<div class=pagination__buttons>
+<span class="button next">
+<a href=https://tookser.github.io/posts/otp/>
+<span class=button__text>TOTP, HOTP</span>
+<span class=button__icon>→</span>
+</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class=footer__inner>
+<div class=copyright>
+<span>© 2025 Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span>
+</div>
+</div>
+</footer>
+<script src=https://tookser.github.io/assets/main.js></script>
+<script src=https://tookser.github.io/assets/prism.js></script>
+</div>
+</body>
+</html>

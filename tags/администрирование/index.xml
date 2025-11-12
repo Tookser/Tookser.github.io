@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>администрирование on Личный сайт Ивана Белашкина</title><link>https://tookser.github.io/tags/%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/</link><description>Recent content in администрирование on Личный сайт Ивана Белашкина</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Fri, 05 May 2023 15:43:18 +0300</lastBuildDate><atom:link href="https://tookser.github.io/tags/%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/index.xml" rel="self" type="application/rss+xml"/><item><title>Горячие клавиши</title><link>https://tookser.github.io/posts/hotkey/</link><pubDate>Fri, 05 May 2023 15:43:18 +0300</pubDate><guid>https://tookser.github.io/posts/hotkey/</guid><description>XFCE В линуксе (убунту) есть пакет с командой wmctrl. https://superuser.com/a/142957 тут описано, что он позволяет активировать окно по его названию. Т.е. можно сделать скриптик на bash, который по хоткею будет запускаться и либо активировать окно с обсидианом, либо — запускать его, если не был запущен
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>администрирование on Личный сайт Ивана Белашкина</title><link>https://tookser.github.io/tags/%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/</link><description>Recent content in администрирование on Личный сайт Ивана Белашкина</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Wed, 12 Nov 2025 22:13:08 +0300</lastBuildDate><atom:link href="https://tookser.github.io/tags/%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/index.xml" rel="self" type="application/rss+xml"/><item><title>Инструкция: как мигрировать БД из PasswordSafe в KeePassXC</title><link>https://tookser.github.io/posts/passwordsafe_to_keepassxc_migration/</link><pubDate>Wed, 12 Nov 2025 22:13:08 +0300</pubDate><guid>https://tookser.github.io/posts/passwordsafe_to_keepassxc_migration/</guid><description>Что и зачем KeePassXC - опенсорсный парольный менеджер, он хранит пароли. Он гораздо функциональнее и удобнее, чем PasswordSafe.
+Чтобы перейти из одного в другой, сохранив пароли - нужна миграция БД из PasswordSafe в KeePassXC.
+Ориентировался на эту инструкцию, но упростил из-за апдейтов программы.
+Подготовка Создаём RAM-диск: sudo mkdir /mnt/NAME sudo mount -o size=10M -t tmpfs tmpfs /mnt/NAME (он должен исчезнуть после перезагрузки).
+Устанавливаем KeePass2x. (он понадобится для промежуточного этапа переноса).</description><content>&lt;h2 id="что-и-зачем">Что и зачем&lt;/h2>
+&lt;p>&lt;code>KeePassXC&lt;/code> - опенсорсный парольный менеджер, он хранит пароли. Он гораздо функциональнее и удобнее, чем &lt;code>PasswordSafe&lt;/code>.&lt;/p>
+&lt;p>Чтобы перейти из одного в другой, сохранив пароли - нужна миграция БД из &lt;code>PasswordSafe&lt;/code> в &lt;code>KeePassXC&lt;/code>.&lt;/p>
+&lt;p>Ориентировался на &lt;a href="https://infosec.press/ktneely/migrating-passwordsafe-to-keepassxc">эту инструкцию&lt;/a>, но упростил из-за апдейтов программы.&lt;/p>
+&lt;h2 id="подготовка">Подготовка&lt;/h2>
+&lt;ul>
+&lt;li>Создаём RAM-диск:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo mkdir /mnt/NAME
+sudo mount -o size&lt;span style="color:#f92672">=&lt;/span>10M -t tmpfs tmpfs /mnt/NAME
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>(он должен исчезнуть после перезагрузки).&lt;/p>
+&lt;ul>
+&lt;li>Устанавливаем &lt;a href="https://keepass.info/help/v2/setup.html">KeePass2x&lt;/a>. (он понадобится для промежуточного этапа переноса).&lt;/li>
+&lt;li>Устанавливаем &lt;a href="https://keepassxc.org/">KeePassXC&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="шаги">&lt;strong>Шаги:&lt;/strong>&lt;/h2>
+&lt;ol>
+&lt;li>Экспортируем из PasswordSafe в формате .xml &lt;em>RAM-диск&lt;/em>. (в примере &lt;code>/mnt/NAME&lt;/code>) Сохраняем все поля.&lt;/li>
+&lt;li>В KeePass2x, создаём шифрованную БД (не рекомендую использовать тот же пароль, что был в PS), уже на обычном диске. Файл должен получить расширение &lt;code>.kdbx&lt;/code>.&lt;/li>
+&lt;li>(Опционально) Рекомендуется удалить sample entries, чтобы не отвлекали (2 демонстрационных &lt;code>entry&lt;/code>, которые есть в новой базе).&lt;/li>
+&lt;li>В KeePass2x, импортируем с диска в оперативной памяти (формат импорта - PasswordSafe XML).&lt;/li>
+&lt;li>Уже в KeePassXC открываем БД, созданную ранее.&lt;/li>
+&lt;li>Удаляем файлы &lt;em>RAM-диск&lt;/em> (&lt;code>/mnt/NAME&lt;/code>).&lt;/li>
+&lt;/ol>
+&lt;p>(Для проверки можно посмотреть &lt;code>Database -&amp;gt; Database Reports...&lt;/code> и посмотреть на Number of Entries, оно будет тем же, что и в PasswordSafe.)&lt;/p></content></item><item><title>Горячие клавиши</title><link>https://tookser.github.io/posts/hotkey/</link><pubDate>Fri, 05 May 2023 15:43:18 +0300</pubDate><guid>https://tookser.github.io/posts/hotkey/</guid><description>XFCE В линуксе (убунту) есть пакет с командой wmctrl. https://superuser.com/a/142957 тут описано, что он позволяет активировать окно по его названию. Т.е. можно сделать скриптик на bash, который по хоткею будет запускаться и либо активировать окно с обсидианом, либо — запускать его, если не был запущен
 bash -c &amp;#34;wmctrl -a &amp;#39;PARTOFTITLE&amp;#39; || /full/path/to/program&amp;#34; В xfce нужно создать сочетание для горячих клавиш (Settings-&amp;gt;Keyboard-&amp;gt;Application Shortcuts). Вместо 'PARTOFTITLE' подставить часть заголовка окна программы, вместо '/full/path/to/program' подставить полный путь к программе.</description><content>&lt;h3 id="xfce">XFCE&lt;/h3>
 &lt;p>В линуксе (убунту) есть пакет с командой wmctrl. &lt;a href="https://superuser.com/a/142957">https://superuser.com/a/142957&lt;/a> тут описано, что он позволяет активировать окно по его названию. Т.е. можно сделать скриптик на bash, который по хоткею будет запускаться и либо активировать окно с обсидианом, либо — запускать его, если не был запущен&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">bash -c &lt;span style="color:#e6db74">&amp;#34;wmctrl -a &amp;#39;PARTOFTITLE&amp;#39; || /full/path/to/program&amp;#34;&lt;/span>
